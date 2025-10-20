@@ -1032,6 +1032,29 @@ body {
   }
 }
 
+/* Large-screen tweak: prevent flowers overlapping the title on laptops (e.g., 16.5") */
+@media (min-width: 1366px) {
+  body {
+    padding-top: 90px; /* give more room for heading */
+  }
+  .happy-woman-day {
+    top: 48px; /* keep it near top */
+    z-index: 1200; /* ensure heading is above floral layers */
+    background: rgba(255,255,255,0.06);
+    padding: 8px 18px;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  /* push the flowers lower so they don't cover the heading */
+  .flowers {
+    transform: translateY(8vmin) scale(0.95);
+    transform-origin: top center;
+  }
+  /* slightly lower each flower stem so visual doesn't climb up */
+  .flower { bottom: 6vmin; }
+}
+
 @media (max-width: 768px) {
   body {
     padding: 30px 0;
